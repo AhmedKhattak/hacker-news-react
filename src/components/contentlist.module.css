@@ -1,0 +1,14 @@
+.contentList {
+
+    margin-top: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: #f2f3f5;
+    
+}
+
+
