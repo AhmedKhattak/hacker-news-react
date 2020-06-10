@@ -22,6 +22,7 @@ export default function HackerData() {
   const [totalPages, setTotalPages] = useState(1);
   const [isloading, setisLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [t, setT] = useState('')
   const history = useHistory()
 
   const [hnData, setHnData] = useState({
@@ -56,6 +57,14 @@ export default function HackerData() {
     }
   };
 
+
+  useEffect(() => {
+    console.log(hnPath, previousPath)
+    if(hnPath !== previousPath){
+      setPage(1)
+      setT(hnPath)
+    }
+  },[hnPath,previousPath])
  
  
  
@@ -107,14 +116,12 @@ export default function HackerData() {
   // run each time page changes our next/prev button is pressed
   useEffect(() => {
     
-    console.log(hnPath)
-    console.log(previousPath)
-   
-    
+    console.log(t)
+
     // get array for each page
     // TODO: Need to learn more typescript !
     //@ts-ignore
-    const arr: number[] = hnData[hnPath] ?? [];
+    const arr: number[] = hnData[t] ?? [];
     // get total pages for each array based on page size
     // round to next number if not an integer
     const totalPages = Math.ceil(arr.length / PAGE_SIZE);
@@ -129,11 +136,11 @@ export default function HackerData() {
     setError(null)
     //https://stackoverflow.com/a/42761393
     let items = null 
-    if(hnPath !== previousPath) {
-      items = arr.slice((1 - 1) * PAGE_SIZE, page * PAGE_SIZE);
-    } else {
+    // if(hnPath !== previousPath) {
+    //   items = arr.slice((1 - 1) * PAGE_SIZE, page * PAGE_SIZE);
+    // } else {
       items = arr.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-    }
+    
     Promise.all(
       items.map((x) =>
         fetch(
@@ -151,7 +158,7 @@ export default function HackerData() {
      
     })
     
-  }, [page, hnData, hnPath,previousPath]);
+  }, [page, hnData, t]);
 
   return (
     <>
