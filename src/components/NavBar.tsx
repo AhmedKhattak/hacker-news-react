@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 import styles from './nav.module.css'
+import logo from '../logo.png'
 
 
 export default function NavBar() {
@@ -8,7 +9,7 @@ export default function NavBar() {
     <nav>
       <div className={styles.nav}>
         <ul>
-          <li><Link to='/top'><img width={22} height={22} src='logo.png' alt="logo"/></Link></li>
+          <li><Link to='/top'><img width={22} height={22} src={logo} alt="logo"/></Link></li>
           <li><Link to='/top'>Top</Link></li>
           <li><Link to='/new'>New</Link></li>
           <li><Link to='/show'>Show</Link></li>

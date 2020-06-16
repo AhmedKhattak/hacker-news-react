@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./contentlist.module.css";
 import styles2 from "./hackercard.module.css";
 import { Item } from "../Interfaces/Item";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { host } from "../utils/host";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
@@ -14,6 +14,7 @@ interface ContentListProps {
 }
 
 export default function ContentList(props: ContentListProps) {
+  const path = useLocation().pathname
   return (
     <>
       <div className={styles.contentList}>
@@ -33,19 +34,21 @@ export default function ContentList(props: ContentListProps) {
                         <a
                           style={{ color: "#34495e", textDecoration: "none" }}
                           href={x.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           {x.title}
                         </a>
                       </span>
                       <span style={{ fontSize: "15px", color: "#828282" }}>
-                        ({host(x.url)} )
+                        {path === '/ask' ? `` : `(${host(x.url)})` } 
                       </span>
                     </>
                   )}
                 </p>
                 <p style={{ color: "#828282", marginTop: "7px" }}>
                   {props.isLoading ? (
-                    <Skeleton width={400} />
+                    <Skeleton width={300} />
                   ) : (
                     <>
                       by{" "}

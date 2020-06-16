@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./control.module.css";
-import {HNData} from '../hooks/useMainData'
+import { HNData } from "../hooks/useMainData";
 import ContentList from "./ContentList";
 import {
   useLocation,
@@ -14,10 +14,10 @@ import LoadingBar from "react-top-loading-bar";
 import { delay } from "../utils/delay";
 
 interface HackerFeedProps {
-  hnData: HNData
+  hnData: HNData;
 }
 
-export default function HackerData({hnData}: HackerFeedProps) {
+export default function HackerData({ hnData }: HackerFeedProps) {
   const PAGE_SIZE = 10;
 
   const [page, setPage] = useState(1);
@@ -47,7 +47,7 @@ export default function HackerData({hnData}: HackerFeedProps) {
 
   // run each time page changes our next/prev button is pressed
   useEffect(() => {
-    setHnSlice(Array(10).fill({}))
+    setHnSlice(Array(10).fill({}));
 
     // get array for each page
     // TODO: Need to learn more typescript !
@@ -99,9 +99,27 @@ export default function HackerData({hnData}: HackerFeedProps) {
         </span>{" "}
         <button onClick={increment}>next &gt; </button>
       </div>
-      {error && <h1 className={styles.contentControl}>Oopsie Errror</h1>}
-
-      <ContentList isLoading={isloading} data={hnSlice ?? Array(10).fill({})} />
+      {error !== null ? (
+        <div
+          style={{
+            height: "100vh",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {" "}
+          <h2>An Error Occurred. Please Retry Again.</h2>
+        </div>
+      ) : (
+        <>
+          <ContentList
+            isLoading={isloading}
+            data={hnSlice ?? Array(10).fill({})}
+          />
+        </>
+      )}
     </>
   );
 }

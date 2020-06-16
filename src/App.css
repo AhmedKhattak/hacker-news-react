@@ -9,6 +9,7 @@
 
 body {
   margin: 0px;
+  background-color: var(--secondary-background) ;
   font-family: 'Lato', sans-serif;
 }
 

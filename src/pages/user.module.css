@@ -1,0 +1,28 @@
+.userContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.userContainer > div {
+    background-color: white;
+    max-width: var(--max-width);
+    width: var(--width);
+    padding: 25px;
+}
+
+.userContainer p {
+   margin: 10px;
+}
+.userContainer strong {
+    font-size: 25px;
+    color: #34495e;
+
+}
+
+
+.userContainer a {
+    color: #34495e;
+ }
