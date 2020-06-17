@@ -9,3 +9,7 @@
     outline: none;
     
 }
+
+a {
+    word-wrap: break-word;
+}

@@ -105,7 +105,7 @@ export default function ItemComments() {
             {item?.kids?.length === undefined || item.kids.length === 0 ? (
               <></>
             ) : (
-              <CommentsList kids={item?.kids ?? []} />
+              <CommentsList kids={item?.kids ?? Array(10).fill({})} />
             )}
           </div>
         </div>

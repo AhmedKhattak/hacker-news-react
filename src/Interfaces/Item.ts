@@ -1,7 +1,7 @@
 // https://github.com/HackerNews/API
 // https://transform.tools/json-to-typescript
 // The Item objects covers all possible data objects returned from hacker news feeds
-export interface Item {
+export  interface Item {
     id: number;
     deleted?: boolean;
     type?: string;
@@ -17,5 +17,5 @@ export interface Item {
     title?: string;
     parts:number[];
     descendants?: number;
-  }
+}
   
