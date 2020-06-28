@@ -9,8 +9,7 @@
 .itemCommentHead,
 .itemComments {
   background-color: white;
-  max-width: var(--max-width);
-  width: var(--width);
+  width: 100%;
   padding: 30px;
 }
 
@@ -41,4 +40,17 @@ hr {
 
 ul , li{
   list-style-type: none;
+}
+
+
+@media only screen and (min-width: 500px){
+
+  .itemCommentHead,
+  .itemComments {
+   width: var(--width);
+   max-width:  var(--max-width);
+   
+
+  }
+  
 }

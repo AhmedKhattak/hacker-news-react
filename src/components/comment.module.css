@@ -13,3 +13,12 @@
 a {
     word-wrap: break-word;
 }
+
+p {
+    word-wrap: break-word;
+}
+
+code {
+    display: block;
+    white-space: pre-wrap 
+}

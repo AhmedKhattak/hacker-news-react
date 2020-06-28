@@ -5,6 +5,7 @@ import { User as UserInterface } from "../Interfaces/User";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
 import Skeleton from "react-loading-skeleton";
+import { Helmet } from "react-helmet";
 
 export default function User() {
   const { id } = useParams();
@@ -52,6 +53,9 @@ export default function User() {
         </div>
       ) : (
         <div className={styles.userContainer}>
+          <Helmet>
+            <title>{`React HN | ${id}`}</title>
+          </Helmet>
           <div>
             
             <p> {isLoading ? <Skeleton width={150} height={30} /> : <strong>User: {id}</strong> } </p>

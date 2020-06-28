@@ -8,6 +8,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { host } from "../utils/host";
 import Comments from "../components/Comment";
 import CommentsList from "../components/CommentsList";
+import { Helmet } from "react-helmet";
 
 export default function ItemComments() {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,10 +40,9 @@ export default function ItemComments() {
 
   const showCommentCount = () => {
     if (item?.kids?.length === undefined || item.kids.length === 0) {
-      return <p>No Comments Yet</p>
+      return <p>No Comments Yet</p>;
     } else {
       return <>{item?.kids?.length} top level comments</>;
-     
     }
   };
 
@@ -63,6 +63,11 @@ export default function ItemComments() {
         </div>
       ) : (
         <div className={styles.itemCommentContainer}>
+          {/* does not matter where you place it. it just needs to be rendered
+          i didnt want tot wrap it in a fragment so placed it over here */}
+          <Helmet>
+            <title>{`React HN | ${item?.title}`}</title>
+          </Helmet>
           <div className={styles.itemCommentHead}>
             <p>
               {isLoading ? (
@@ -99,7 +104,9 @@ export default function ItemComments() {
           </div>
 
           <div className={styles.itemComments}>
-              <p>{isLoading ? <Skeleton width={150} /> : <>{showCommentCount()}</>}</p>
+            <p>
+              {isLoading ? <Skeleton width={150} /> : <>{showCommentCount()}</>}
+            </p>
             <hr />
 
             {item?.kids?.length === undefined || item.kids.length === 0 ? (

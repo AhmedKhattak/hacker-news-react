@@ -4,6 +4,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import LogRocket from 'logrocket';
+
+if(process.env.NODE_ENV === 'production') {
+  LogRocket.init('mersjy/hacker-news-react');
+}
+
+
+
 ReactDOM.render(
   // <React.StrictMode>
     <Router>

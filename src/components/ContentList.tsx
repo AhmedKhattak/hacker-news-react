@@ -7,6 +7,7 @@ import { host } from "../utils/host";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
 import Skeleton from "react-loading-skeleton";
+// import { useMediaQuery } from 'react-responsive'
 
 interface ContentListProps {
   data: Item[];
@@ -24,10 +25,10 @@ export default function ContentList(props: ContentListProps) {
           return (
             <div key={x.id} className={styles2.hackerCard}>
               <div>{x.score ?? <Skeleton width={30} height={30} />} </div>
-              <div>
-                <p style={{ marginBottom: "7px" }}>
+              <div style={{width: '100%'}}>
+                <p style={{ marginBottom: "7px" , width: '100%'}}>
                   {props.isLoading ? (
-                    <Skeleton width={400} />
+                    <Skeleton className={styles2.skeletonTopLine} />
                   ) : (
                     <>
                       <span className="title">
@@ -46,9 +47,9 @@ export default function ContentList(props: ContentListProps) {
                     </>
                   )}
                 </p>
-                <p style={{ color: "#828282", marginTop: "7px" }}>
+                <p style={{ color: "#828282", marginTop: "7px", width: '100%' }}>
                   {props.isLoading ? (
-                    <Skeleton width={300} />
+                    <Skeleton className={styles2.skeletonBottomLine} />
                   ) : (
                     <>
                       by{" "}

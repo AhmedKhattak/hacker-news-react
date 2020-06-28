@@ -12,6 +12,7 @@ import {
 import { Item } from "../Interfaces/Item";
 import LoadingBar from "react-top-loading-bar";
 import { delay } from "../utils/delay";
+import { Helmet } from "react-helmet";
 
 interface HackerFeedProps {
   hnData: HNData;
@@ -114,6 +115,9 @@ export default function HackerData({ hnData }: HackerFeedProps) {
         </div>
       ) : (
         <>
+          <Helmet>
+            <title>{'React HN | '  + location.pathname.substr(1)}</title>
+          </Helmet>
           <ContentList
             isLoading={isloading}
             data={hnSlice ?? Array(10).fill({})}

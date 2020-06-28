@@ -3,7 +3,7 @@ nav {
     background-color: #FF6700 ;
     position: fixed;
     top: 0;
-   width: 100%;
+    width: 100%;
     color: white;
    
   }
@@ -22,7 +22,10 @@ nav {
 
   .nav span {
     font-size: 14px;
+    display: none
   }
+
+  
   
   
   .nav ul li {
@@ -42,7 +45,7 @@ nav {
     align-items: center;
     align-content: center;
     height: 100%;
-    width: 40px;
+  
     color: white;
     font-size: 16px;
     text-decoration: none;
@@ -55,6 +58,8 @@ nav {
     text-decoration: underline;
    }
 
+
+
   .nav ul {
     display: flex;
     flex-direction: row;
@@ -63,4 +68,17 @@ nav {
     height: 100%;
     margin:0px ;
     padding-left: 0px;
+  }
+
+
+  @media only screen and (min-width: 500px){
+    .nav span {
+      display: initial
+    }
+
+    .nav ul li a{ 
+      width: 40px;
+      font-size: 16px;
+    }
+    
   }
