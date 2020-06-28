@@ -7,6 +7,7 @@ import { host } from "../utils/host";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
 import Skeleton from "react-loading-skeleton";
+import HackerCard from "./HackerCard";
 // import { useMediaQuery } from 'react-responsive'
 
 interface ContentListProps {
@@ -17,62 +18,13 @@ interface ContentListProps {
 export default function ContentList(props: ContentListProps) {
   const path = useLocation().pathname
   return (
-    <>
+  
       <div className={styles.contentList}>
         {props.data.map((x) => {
           const timeAgo = formatDistanceToNow(fromUnixTime(x.time ?? 0));
-
-          return (
-            <div key={x.id} className={styles2.hackerCard}>
-              <div>{x.score ?? <Skeleton width={30} height={30} />} </div>
-              <div style={{width: '100%'}}>
-                <p style={{ marginBottom: "7px" , width: '100%'}}>
-                  {props.isLoading ? (
-                    <Skeleton className={styles2.skeletonTopLine} />
-                  ) : (
-                    <>
-                      <span className="title">
-                        <a
-                          style={{ color: "#34495e", textDecoration: "none" }}
-                          href={x.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {x.title}
-                        </a>
-                      </span>
-                      <span style={{ fontSize: "15px", color: "#828282" }}>
-                        {path === '/ask' ? `` : `(${host(x.url)})` } 
-                      </span>
-                    </>
-                  )}
-                </p>
-                <p style={{ color: "#828282", marginTop: "7px", width: '100%' }}>
-                  {props.isLoading ? (
-                    <Skeleton className={styles2.skeletonBottomLine} />
-                  ) : (
-                    <>
-                      by{" "}
-                      <span>
-                        <Link style={{ color: "#828282" }} to={`/user/${x.by}`}>
-                          {x.by}
-                        </Link>
-                      </span>
-                      <span>{timeAgo} ago</span>
-                      <span>
-                        |{" "}
-                        <Link style={{ color: "#828282" }} to={`/item/${x.id}`}>
-                          {x.kids?.length ?? 0} comments
-                        </Link>{" "}
-                      </span>
-                    </>
-                  )}
-                </p>
-              </div>
-            </div>
-          );
+          return <HackerCard x={x} timeAgo={timeAgo} path={path} isLoading={props.isLoading} key={x.id}/>
         })}
       </div>
-    </>
+    
   );
 }
