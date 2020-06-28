@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./control.module.css";
-import { HNData } from "../hooks/useMainData";
+import { HNData } from "../../hooks/useMainData";
 import ContentList from "./ContentList";
 import {
   useLocation,
@@ -9,9 +9,8 @@ import {
   Redirect,
   useHistory,
 } from "react-router-dom";
-import { Item } from "../Interfaces/Item";
-import LoadingBar from "react-top-loading-bar";
-import { delay } from "../utils/delay";
+import { Item } from "../../Interfaces/Item";
+import { delay } from "../../utils/delay";
 import { Helmet } from "react-helmet";
 
 interface HackerFeedProps {

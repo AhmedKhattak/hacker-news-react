@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Item } from "../Interfaces/Item";
+import React, { useState, useEffect } from "react";
+import { Item } from "../../Interfaces/Item";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
-import { is, he } from "date-fns/locale";
 import { Link } from "react-router-dom";
-import { time } from "console";
 import Skeleton from "react-loading-skeleton";
 import  "./comment.module.css";
 import styled from "styled-components";

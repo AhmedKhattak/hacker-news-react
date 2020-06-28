@@ -1,13 +1,10 @@
 import React from "react";
 import styles from "./contentlist.module.css";
-import styles2 from "./hackercard.module.css";
-import { Item } from "../Interfaces/Item";
-import { Link, useLocation } from "react-router-dom";
-import { host } from "../utils/host";
+import { Item } from "../../Interfaces/Item";
+import { useLocation } from "react-router-dom";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
-import Skeleton from "react-loading-skeleton";
-import HackerCard from "./HackerCard";
+import HackerCard from "../hackerCard/HackerCard";
 // import { useMediaQuery } from 'react-responsive'
 
 interface ContentListProps {

@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './hackercard.module.css'
 import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
-import { Item } from '../Interfaces/Item';
-import { host } from "../utils/host";
+import { Item } from '../../Interfaces/Item';
+import { host } from "../../utils/host";
 
 interface HackerCardProps {
     x: Item

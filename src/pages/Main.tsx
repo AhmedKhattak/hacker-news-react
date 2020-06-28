@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
-import HackerFeed from "../components/HackerFeed";
+import React from "react";
+import NavBar from "../components/navbar/NavBar";
+import HackerFeed from "../components/hackerFeed/HackerFeed";
 import {
   Switch,
   Route,
   Redirect,
-  useParams,
-  Link,
   useLocation,
 } from "react-router-dom";
 import useMainData from "../hooks/useMainData";
-import { isError } from "util";
-import ContentList from "../components/ContentList";
-import User from "./User";
-import ItemComments from "./ItemComment";
+import User from "../components/user/User";
+import ItemComments from "../components/articleItem/ItemComment";
 
 export default function Home() {
   // custom hook !
-  const { error, hnData, isLoading } = useMainData();
+  const { error, hnData } = useMainData();
   const location = useLocation();
 
   console.log("rendered");

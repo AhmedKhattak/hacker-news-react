@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./user.module.css";
 import { useParams } from "react-router-dom";
-import { User as UserInterface } from "../Interfaces/User";
+import { User as UserInterface } from "../../Interfaces/User";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import fromUnixTime from "date-fns/fromUnixTime";
 import Skeleton from "react-loading-skeleton";

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Item } from "../Interfaces/Item";
-import { tr } from "date-fns/locale";
+import { Item } from "../../Interfaces/Item";
 import Comments from "./Comment";
 
 interface CommentsListProps {

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./item-container.module.css";
 import { useParams, Link } from "react-router-dom";
-import { Item } from "../Interfaces/Item";
+import { Item } from "../../Interfaces/Item";
 import fromUnixTime from "date-fns/fromUnixTime";
 import Skeleton from "react-loading-skeleton";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { host } from "../utils/host";
-import Comments from "../components/Comment";
-import CommentsList from "../components/CommentsList";
+import { host } from "../../utils/host";
+import CommentsList from "../comments/CommentsList";
 import { Helmet } from "react-helmet";
 
 export default function ItemComments() {
