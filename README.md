@@ -13,6 +13,10 @@ You can deploy a copy of this app instantly using vercel deploy. Click the butto
   <img src="https://vercel.com/button" alt="Deploy" />
 </a>
 
+And you can also get an editable live version of the app on code sandbox !
+
+[![Edit hacker-news-react](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/cranky-williams-2sz9j?fontsize=14&hidenavigation=1&theme=dark)
+
 
 ##### Screenshots
 
